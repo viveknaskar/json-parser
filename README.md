@@ -1,6 +1,6 @@
 # json-to-object
 
-This simple class converts JSON data to java project using properties of Jackson.
+This simple class converts JSON data to java object using properties of Jackson.
 
 Technologies used:
 
