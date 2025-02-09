@@ -1,14 +1,48 @@
-# json-to-object
+# JSON Parser
 
-This simple class converts JSON data to java object using properties of Jackson.
+**JSON Parser** is a simple Java-based utility for converting JSON strings into Java objects and vice versa using Jackson.
 
-Technologies used:
+## Features
+- Convert JSON strings to Java objects.
+- Convert Java objects to JSON strings.
+- Uses Jackson for efficient serialization and deserialization.
 
-1. openjdk version "11.0.3" 2019-04-16
-2. Gradle 5.2.1
-3. Jackson 2.9.9
-4. IntelliJ Idea 2019.2
+## Dependencies
+- Java 17 (can use 8+)
+- Jackson Databind
 
-Jackson Annotations:
+## Usage
+### Example JSON Data
+```json
+{
+  "driverid": "7",
+  "drivername": "Vivek",
+  "drivercar": {
+    "carname": "Audi R8",
+    "carcate": "Sports Car"
+  }
+}
+```
 
-@JsonProperty defines a logical property used in serialization and deserialization of JSON. When we set JSON data to Java Object, it is called JSON deserialization and when we get JSON data from Java Object, it is called JSON serialization. @JsonProperty can change the visibility of logical property using its access element during serialization and deserialization of JSON. @JsonAlias defines one or more alternative names for a property to be accepted during deserialization. At the time of serialization only actual logical property name is used and not alias. 
+### Java Code Example
+```java
+String jsonData = "{" +
+        "\"driverid\" : \"7\"," +
+        "\"drivername\" : \"Vivek\"," +
+        "\"drivercar\" : {" +
+        "\"carname\" : \"Audi R8\"," +
+        "\"carcate\" : \"Sports Car\"" +
+        "}" +
+        "}";
+
+Driver driver = JsonParser.fromJson(jsonData, Driver.class);
+System.out.println("Driver Name: " + driver.getName());
+System.out.println("Car Name: " + driver.getCar().getName());
+
+String generatedJson = JsonParser.toJson(driver);
+System.out.println("Generated JSON: " + generatedJson);
+```
+
+## License
+MIT License
+
