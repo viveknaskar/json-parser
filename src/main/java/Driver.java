@@ -11,6 +11,9 @@ public class Driver {
     @JsonProperty("drivercar")
     private Car car;
 
+    // No-Args constructor is required for Jackson library
+    public Driver() {}
+
     public Driver(String id, String name, Car car) {
         this.id = id;
         this.name = name;

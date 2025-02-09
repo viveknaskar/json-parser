@@ -7,14 +7,16 @@ public class Car {
     private String name;
 
     @JsonProperty("carcategory")
-    @JsonAlias({"carcate","cartype"})
+    @JsonAlias({"carcate", "cartype"})
     private String category;
 
-    public Car(){};
+    // No-Args constructor is required for Jackson library
+    public Car() {
+    }
 
-    public Car(String name, String category){
-        this.name=name;
-        this.category=category;
+    public Car(String name, String category) {
+        this.name = name;
+        this.category = category;
     }
 
     public String getName() {
